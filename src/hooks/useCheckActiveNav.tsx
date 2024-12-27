@@ -6,6 +6,6 @@ export default function useCheckActiveNav() {
   const checkActiveNav = (nav: string) => {
     return pathname === nav
   }
-  
+
   return { checkActiveNav }
 }
