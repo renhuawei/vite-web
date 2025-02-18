@@ -1,6 +1,8 @@
 import { Suspense, lazy } from 'react'
 import { Route, Routes } from 'react-router'
+import AppShell from '@/components/app-shell'
 import Loader from '@/components/loader'
+
 const Dashboard = lazy(() => import('@/pages/dashboard'))
 const SignIn = lazy(() => import('@/pages/auth/sign-in'))
 const SignIn2 = lazy(() => import('@/pages/auth/sign-in-2'))
@@ -23,7 +25,9 @@ export default function Router() {
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
 
-        <Route path='/' element={<Dashboard />} />
+        <Route path='/' element={<AppShell />} errorElement={<GeneralError />}>
+          <Route path='/' element={<Dashboard />} />
+        </Route>
 
         {/* Errors routes */}
         <Route path='/404' element={<NotFoundError />} />
