@@ -1,9 +1,13 @@
 import { HTMLAttributes, useState } from 'react'
-import { cn } from '@/lib/utils'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router'
 import { z } from 'zod'
-import { Button } from '@/components/ui/button'
+import { zodResolver } from '@hookform/resolvers/zod'
+import {
+  IconBrandFacebook,
+  IconBrandGithub,
+  IconLoader2,
+} from '@tabler/icons-react'
 import {
   Form,
   FormControl,
@@ -12,13 +16,12 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Link } from 'react-router'
-import {
-  IconBrandFacebook,
-  IconBrandGithub,
-  IconLoader2,
-} from '@tabler/icons-react'
+import { PasswordInput } from '@/components/password-input'
+import { cn } from '@/lib/utils'
+
+interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> {}
 
 const formSchema = z.object({
   email: z
@@ -35,7 +38,7 @@ const formSchema = z.object({
     }),
 })
 
-export function UserAuthForm({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -88,7 +91,7 @@ export function UserAuthForm({ className, ...props }: HTMLAttributes<HTMLDivElem
                     </Link>
                   </div>
                   <FormControl>
-                    <Input placeholder='********' {...field} type='password' />
+                    <PasswordInput placeholder='********' {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

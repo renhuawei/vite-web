@@ -18,6 +18,9 @@ import {
   IconBrandGithub,
   IconLoader2,
 } from '@tabler/icons-react'
+import { PasswordInput } from '@/components/password-input'
+
+interface SignUpFormProps extends HTMLAttributes<HTMLDivElement> {}
 
 const formSchema = z
   .object({
@@ -40,7 +43,7 @@ const formSchema = z
     path: ['confirmPassword'],
   })
 
-export function SignUpForm({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+export function SignUpForm({ className, ...props }: SignUpFormProps) {
   const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -86,7 +89,7 @@ export function SignUpForm({ className, ...props }: HTMLAttributes<HTMLDivElemen
                 <FormItem className='space-y-1'>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input placeholder='********' {...field} type='password' />
+                    <PasswordInput placeholder='********' {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -99,7 +102,7 @@ export function SignUpForm({ className, ...props }: HTMLAttributes<HTMLDivElemen
                 <FormItem className='space-y-1'>
                   <FormLabel>Confirm Password</FormLabel>
                   <FormControl>
-                    <Input placeholder='********' {...field} type='password' />
+                    <PasswordInput placeholder='********' {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
