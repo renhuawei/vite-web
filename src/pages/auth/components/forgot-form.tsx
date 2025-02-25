@@ -21,7 +21,10 @@ const formSchema = z.object({
     .email({ message: 'Invalid email address' }),
 })
 
-export function ForgotForm({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+export function ForgotForm({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) {
   const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
