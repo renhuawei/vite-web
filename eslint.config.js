@@ -7,7 +7,7 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default tseslint.config(
-  { ignores: ['dist', 'src/components/ui'] },
+  { ignores: ['dist', 'src/components/ui', 'tailwind.config.js'] },
   {
     extends: [
       js.configs.recommended,
