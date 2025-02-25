@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "incremental": true,
+    /* TypeScript 选项“noEmit”与选项“incremental”不能同时使用 */
+    /* "incremental": true, */
+
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2022",
     "lib": ["ES2023"],
