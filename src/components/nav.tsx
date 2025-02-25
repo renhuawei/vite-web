@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 import { IconChevronDown } from '@tabler/icons-react'
-import { Button, buttonVariants } from './ui/button'
+import { Button, buttonVariants } from './custom/button'
 import {
   Collapsible,
   CollapsibleContent,
